@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Search and stream movies and TV shows instantly. Just search and watch!">
+    <meta name="keywords" content="video streaming, movies, tv shows, watch online, instant stream">
+    <title>VidStream - Search & Watch Instantly</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <button class="settings-btn" id="settingsBtn" title="Settings">⚙️</button>
+            <h1>🎬 VidStream</h1>
+            <p class="header-subtitle">Search movies & TV shows - Watch instantly</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="glass-card search-card">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput"
+                        placeholder="Search for movies or TV shows..." autocomplete="off">
+                    <div class="search-icon">🔍</div>
+                </div>
+                <div id="searchStatus" class="search-status"></div>
+            </div>
+        </section>
+
+        <!-- Search Results -->
+        <section class="results-section" id="resultsSection">
+            <div id="resultsGrid" class="results-grid"></div>
+        </section>
+
+        <!-- Video Player Modal -->
+        <div class="video-modal" id="videoModal">
+            <div class="video-modal-overlay" id="modalOverlay"></div>
+            <div class="video-modal-content">
+                <button class="modal-close" id="modalClose">✕</button>
+                <div class="video-info" id="videoInfo">
+                    <h2 id="videoTitle"></h2>
+                    <p id="videoMeta"></p>
+                </div>
+                <div class="tv-episode-selector" id="episodeSelector">
+                    <label>
+                        Season:
+                        <input type="number" id="seasonSelect" min="1" value="1">
+                    </label>
+                    <label>
+                        Episode:
+                        <input type="number" id="episodeSelect" min="1" value="1">
+                    </label>
+                    <button class="btn-small" id="changeEpisode">Change Episode</button>
+                </div>
+                <div class="video-container" id="modalVideoContainer">
+                    <div class="video-placeholder" id="modalPlaceholder">
+                        <div class="loading-spinner"></div>
+                        <p>Loading video...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="video-modal" id="settingsModal">
+        <div class="video-modal-overlay" id="settingsOverlay"></div>
+        <div class="video-modal-content settings-content">
+            <button class="modal-close" id="settingsClose">✕</button>
+            <h2>⚙️ Settings</h2>
+            <div class="settings-group">
+                <label for="apiKeyInput" class="settings-label">
+                    TMDB API Key
+                    <span class="tooltip" title="Required for search functionality">ℹ️</span>
+                </label>
+                <p class="settings-desc">
+                    To enable search, you need a free API key from The Movie Database (TMDB).
+                    <a href="https://www.themoviedb.org/signup" target="_blank" class="accent-link">Sign up here</a> if
+                    you don't have one.
+                </p>
+                <input type="text" id="apiKeyInput" class="input-field" placeholder="Enter your TMDB API Key">
+            </div>
+            <button class="btn btn-primary btn-block" id="saveSettingsBtn">Save Settings</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+
+</html>
